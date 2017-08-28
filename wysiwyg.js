@@ -45,16 +45,18 @@ function comedianString(){
   console.log("WHOAH");
 	var domString = '';
 	for (var i = 0; i < comedianArray.length; i++) {
-  	domString+=`<div id='comedianCard' class='cardHolder'>`;
+  	domString+=`<div class='comedian-card'>`;
   	domString+=		`<person>`;
-  	domString+=			`<header>${comedianArray[i].title}, ${comedianArray[i].name}`;
+  	domString+=			`<header>`
+    domString+=         `<h4>${comedianArray[i].title}, ${comedianArray[i].name}</h4>`;
     domString+=      `</header>`;
-  	domString+=			`<section>${comedianArray[i].bio}`;
+  	domString+=      `<section>`;
+    domString+=			    `<p>${comedianArray[i].bio}</p>`;
     domString+=     `</section>`;
     domString+=     `<div>`;
-    domString+=     `<img src='${comedianArray[i].image}'`;
-    domString+=   `</div>`;
-  	domString+=		`</person>`;
+    domString+=        `<img src='${comedianArray[i].image}'`;
+    domString+=     `</div>`;
+  	domString+=	 `</person>`;
   	domString+=	`</div>`;
 	  }
     writeToDom(domString);
