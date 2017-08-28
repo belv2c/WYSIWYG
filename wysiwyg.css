@@ -1,0 +1,26 @@
+body {
+	background-color: #72CAB7;
+}
+
+h1 {
+	text-align: center;
+}
+
+h4 {
+	font: 1em;
+}
+
+img {
+	max-height: 350px;
+	max-width: 350px;
+}
+
+
+#comedian-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.comedian-card section p {
+	font-size: 1em;
+}
