@@ -39,24 +39,26 @@ var comedianArray = [
 
 var textBox = document.getElementById("text-holder");
 var comedianContainer = document.getElementById("comedian-container");
-
+var counter = 0;
+var outputEl = document.getElementById("outputEl");
+for (; counter < 5; counter++) {
 
 function comedianString(){
   console.log("WHOAH");
 	var domString = '';
 	for (var i = 0; i < comedianArray.length; i++) {
-  	domString+=`<div class='comedian-card'>`;
-  	domString+=		`<person>`;
-  	domString+=			`<header>`
+  	domString+=`<div class="person-container" id="person-${counter}">`;
+  	domString+=			`<header>`;
     domString+=         `<h4>${comedianArray[i].title}, ${comedianArray[i].name}</h4>`;
     domString+=      `</header>`;
   	domString+=      `<section>`;
-    domString+=			    `<p>${comedianArray[i].bio}</p>`;
+    domString+=        `<img src='${comedianArray[i].image}'>`;
+    domString+=			    `<p class="bio">${comedianArray[i].bio}</p>`;
     domString+=     `</section>`;
-    domString+=     `<div>`;
-    domString+=        `<img src='${comedianArray[i].image}'`;
-    domString+=     `</div>`;
-  	domString+=	 `</person>`;
+    domString+=     `<footer>`;
+    domString+=         `<h3>Birth: ${comedianArray[i].lifespan.birth}</h6>`;
+    domString+=         `<h3>Death: ${comedianArray[i].lifespan.death}</h6>`;
+    domString+=     `</footer>`;
   	domString+=	`</div>`;
 	  }
     writeToDom(domString);
@@ -64,6 +66,7 @@ function comedianString(){
 
 function writeToDom(string){
   comedianContainer.innerHTML = string;
+}
 }
 
 comedianString();

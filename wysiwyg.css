@@ -15,6 +15,10 @@ img {
 	max-width: 350px;
 }
 
+.person-container {
+	display: flex;
+	flex-wrap: wrap;
+}
 
 #comedian-container {
 	display: flex;
