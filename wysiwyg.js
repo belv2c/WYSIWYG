@@ -27,7 +27,7 @@ var comedianArray = [
   title: "Comedian",
   name: "Buster Keaton",
   bio: "An American actor, comedian, film director, producer, screenwriter, and stunt performer. He was best known for his silent films, in which his trademark was physical comedy with a consistently stoic, deadpan expression, earning him the nickname, The Great Stone Face.",
-  image: "https://www.thefamouspeople.com/profiles/images/buster-keaton-3.jpg",
+  image: "http://americancinemathequecalendar.com/sites/default/files/stills_events_390_240/buster_keaton390_3.jpg?1424385076",
   lifespan: {
     birth: 1895,
     death: 1966
@@ -38,10 +38,10 @@ var comedianArray = [
 
 
 var textBox = document.getElementById("text-holder");
-var comedianContainer = document.getElementById("comedian-container");
+/*var comedianContainer = document.getElementById("comedian-container");*/
 var counter = 0;
-var outputEl = document.getElementById("outputEl");
-for (; counter < 5; counter++) {
+var outputEl = document.getElementById("output-element");
+for (counter; counter < 5; counter++) {
 
 function comedianString(){
   console.log("WHOAH");
@@ -54,6 +54,7 @@ function comedianString(){
   	domString+=      `<section>`;
     domString+=        `<img src='${comedianArray[i].image}'>`;
     domString+=			    `<p class="bio">${comedianArray[i].bio}</p>`;
+    domString+=          `<p class="bio-input"></p>`;
     domString+=     `</section>`;
     domString+=     `<footer>`;
     domString+=         `<h3>Birth: ${comedianArray[i].lifespan.birth}</h6>`;
@@ -65,7 +66,7 @@ function comedianString(){
 }
 
 function writeToDom(string){
-  comedianContainer.innerHTML = string;
+  outputEl.innerHTML = string;
 }
 }
 
