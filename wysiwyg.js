@@ -35,6 +35,7 @@ var comedianArray = [
 }
 ];
 
+var inputContainer = document.getElementById("input");
 var bioContainer = document.getElementsByClassName("bio-input");
 var personHeader = document.getElementsByClassName("header-container");
 var textBox = document.getElementById("text-holder");
@@ -100,6 +101,32 @@ function setSelectedCard(event){
   } else if (event.target.parentNode.parentNode.classList.contains("person-container")){
     selectedCard = event.target.parentNode.parentNode;  
   }
-  newBorder();
+  newBorder(); 
+  inputContainer.focus();
 }
+
+input.addEventListener("keyup", typeBio);
+
+function typeBio(event){
+  console.log(event);
+  console.log(selectedCard);
+  var newBio = selectedCard.childNodes[1].childNodes[1];
+  for (var k = 0; k < containerEl.length; k++) {
+    if (containerEl[k].classList.contains("border")) {
+      newBio.innerHTML = `<p>${input.value}</p>`;
+    }
+  }
+  if (event.keyCode === 13) {
+    input.value = "";
+  }
+}
+
+
+
+
+
+
+
+
+
 
