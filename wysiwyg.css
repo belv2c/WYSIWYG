@@ -4,6 +4,8 @@ body {
 
 h1 {
 	text-align: center;
+	margin-bottom: 7px;
+	font-family: 'Istok Web', sans-serif;
 }
 
 
@@ -17,6 +19,7 @@ header {
 	text-align: center;
 	margin: -8px;
     margin-top: -23px;
+    font-family: 'Istok Web', sans-serif;
 }
 
 section {
@@ -25,6 +28,15 @@ section {
 
 footer {
 	text-align: center;
+}
+
+h3 {
+	font-family: 'Lora', serif;
+	font-size: 1em;
+}
+
+p {
+	font-family: 'Lora', serif;
 }
 
 .person-container {
@@ -40,7 +52,9 @@ footer {
 	background-color: #E1FFFF;
 }
 
-.bor
+.border {
+	border: 1px dotted black;
+}
 
 #output-element {
 	display: flex;
@@ -50,8 +64,10 @@ footer {
 
 #input {
 	text-align: center;
+	display: block;
 	margin: 0 auto;
 	width: 300px;
+	margin-bottom: 13px;
 }
 
 
