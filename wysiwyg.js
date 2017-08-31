@@ -35,20 +35,23 @@ var comedianArray = [
 }
 ];
 
-
-
+var bioContainer = document.getElementsByClassName("bio-input");
+var personHeader = document.getElementsByClassName("header-container");
 var textBox = document.getElementById("text-holder");
-/*var comedianContainer = document.getElementById("comedian-container");*/
+//Now containerEl will have elements in it//
+
+/*var personContainer = document.getElementsByClassName("person-container");*/
 var counter = 0;
 var outputEl = document.getElementById("output-element");
 for (counter; counter < 5; counter++) {
+
 
 function comedianString(){
   console.log("WHOAH");
 	var domString = '';
 	for (var i = 0; i < comedianArray.length; i++) {
   	domString+=`<div class="person-container" id="person-${counter}">`;
-  	domString+=			`<header>`;
+  	domString+=			`<header class="header-container">`;
     domString+=         `<h4>${comedianArray[i].title}, ${comedianArray[i].name}</h4>`;
     domString+=      `</header>`;
   	domString+=      `<section>`;
@@ -71,15 +74,32 @@ function writeToDom(string){
 }
 
 comedianString();
+var containerEl = document.getElementsByClassName("person-container");
+var selectedCard;
 
+// Event listeners are created
+for (var j = 0; j < containerEl.length; j++) {
+  containerEl[j].addEventListener("click", setSelectedCard);
+}
 
+/*outputEl.addEventListener("click", setSelectedCard);*/
 
+function newBorder(){
+  for (var j = 0; j < containerEl.length; j++) {
+    containerEl[j].classList.remove("border");
+  }
+    selectedCard.classList.add("border");
+}
 
-
-
-
-
-
-
-
+function setSelectedCard(event){
+  console.log(event);
+  if (event.target.classList.contains("person-container")){
+    selectedCard = event.target;
+  } else if (event.target.parentNode.classList.contains("person-container")){
+    selectedCard = event.target.parentNode;
+  } else if (event.target.parentNode.parentNode.classList.contains("person-container")){
+    selectedCard = event.target.parentNode.parentNode;  
+  }
+  newBorder();
+}
 
