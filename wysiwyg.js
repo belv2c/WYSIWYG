@@ -1,5 +1,6 @@
 console.log("Comedians");
 
+//Creates an array of my favorite comedians
 var comedianArray = [
 {
   title: "Comedian",
@@ -35,18 +36,19 @@ var comedianArray = [
 }
 ];
 
+//Defining variables
 var inputContainer = document.getElementById("input");
 var bioContainer = document.getElementsByClassName("bio-input");
 var personHeader = document.getElementsByClassName("header-container");
 var textBox = document.getElementById("text-holder");
-//Now containerEl will have elements in it//
 
-/*var personContainer = document.getElementsByClassName("person-container");*/
+
+//Now outputEl will have elements in it
 var counter = 0;
 var outputEl = document.getElementById("output-element");
 for (counter; counter < 5; counter++) {
 
-
+//Domstring building the structure of each comedian container
 function comedianString(){
   console.log("WHOAH");
 	var domString = '';
@@ -69,22 +71,27 @@ function comedianString(){
     writeToDom(domString);
 }
 
+
 function writeToDom(string){
   outputEl.innerHTML = string;
-}
+  }
 }
 
+//Prints comedianString function
 comedianString();
+
+//Storing the person container div into containerEl variable
 var containerEl = document.getElementsByClassName("person-container");
+
+//Creates a global variable 
 var selectedCard;
 
-// Event listeners are created
+//Event listeners are created
 for (var j = 0; j < containerEl.length; j++) {
   containerEl[j].addEventListener("click", setSelectedCard);
 }
 
-/*outputEl.addEventListener("click", setSelectedCard);*/
-
+//Looping through length of containerEl and triggering the CSS border element
 function newBorder(){
   for (var j = 0; j < containerEl.length; j++) {
     containerEl[j].classList.remove("border");
@@ -92,6 +99,7 @@ function newBorder(){
     selectedCard.classList.add("border");
 }
 
+//Targets each element within the person-container div 
 function setSelectedCard(event){
   console.log(event);
   if (event.target.classList.contains("person-container")){
@@ -101,21 +109,24 @@ function setSelectedCard(event){
   } else if (event.target.parentNode.parentNode.classList.contains("person-container")){
     selectedCard = event.target.parentNode.parentNode;  
   }
+  //Calls the newBorder function - when you click on an element the border around each container changes
   newBorder(); 
+
+  //Adds focus listener to the inputContainer
   inputContainer.focus();
 }
 
 input.addEventListener("keyup", typeBio);
 
+//Function targets the bio element of each container, loops through the container elements, and mirrors the input into the bio section
 function typeBio(event){
-  console.log(event);
-  console.log(selectedCard);
   var newBio = selectedCard.childNodes[1].childNodes[1];
   for (var k = 0; k < containerEl.length; k++) {
     if (containerEl[k].classList.contains("border")) {
       newBio.innerHTML = `<p>${input.value}</p>`;
     }
   }
+  //If the user presses enter, the bio paragraph reverts to blank
   if (event.keyCode === 13) {
     input.value = "";
   }
